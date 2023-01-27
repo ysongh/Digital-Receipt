@@ -16,12 +16,14 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
     "@vue/cli-plugin-babel": "~4.5.12",
     "@vue/cli-plugin-pwa": "~4.5.12",
     "@vue/cli-plugin-router": "~4.5.12",
     "@vue/cli-plugin-vuex": "~4.5.12",
     "@vue/cli-service": "~4.5.12",
     "chakra-loader": "^1.0.2",
+    "hardhat": "^2.12.6",
     "vue-cli-plugin-chakra-ui": "~1.0.3",
     "vue-template-compiler": "^2.6.11"
   },
