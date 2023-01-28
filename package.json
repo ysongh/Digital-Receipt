@@ -9,6 +9,7 @@
   "dependencies": {
     "@chakra-ui/vue": "^0.6.2",
     "core-js": "^3.6.5",
+    "dotenv": "^16.0.3",
     "emotion": "^10.0.27",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
