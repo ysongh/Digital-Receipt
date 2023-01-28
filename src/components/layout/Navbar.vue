@@ -8,6 +8,9 @@
         <c-link mr="4" as="router-link" to="/">
           Home
         </c-link>
+         <c-link mr="4" as="router-link" to="/add-receipt">
+          Add Receipt
+        </c-link>
         <c-link as="router-link" to="/about">
           About
         </c-link>
