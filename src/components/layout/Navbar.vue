@@ -15,15 +15,26 @@
           About
         </c-link>
       </c-flex>
-      <c-button variant-color="yellow">Connect Wallet</c-button>
+      <c-button variant-color="yellow" @click="connectToBlockchain()">
+        {{ formatWalletAddress(walletAddress) }}
+      </c-button>
     </c-flex>
   </c-box>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  computed: mapGetters(['walletAddress']),
+  methods: {
+    ...mapActions(['connectToBlockchain']),
+    formatWalletAddress(address) {
+      if(address) return address.slice(0, 5) + "..." + address.slice(37, 42)
+      else return "Connect Wallet"
+    }
+  }
 }
 </script>
 
