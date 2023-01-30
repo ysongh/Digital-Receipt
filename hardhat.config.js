@@ -5,8 +5,8 @@ require('dotenv').config();
 module.exports = {
   solidity: "0.8.17",
   networks: {
-    // npx hardhat run scripts/deploy.js --network skaletest
-    skaletest: {
+    // npx hardhat run scripts/deploy.js --network hyperspace
+    hyperspace: {
       url: "https://api.hyperspace.node.glif.io/rpc/v0",
       accounts: [process.env.PRIVATEKEY],
       chainId: 3141,
