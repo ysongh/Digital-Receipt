@@ -7,7 +7,7 @@
       p="3"
       w="500px"
     >
-      <c-heading size="lg">Add Your Website Template</c-heading>
+      <c-heading size="lg">Send Digital Receipt</c-heading>
 
       <c-form-control my="4">
         <c-form-label for="to" fontWeight="bold">To</c-form-label>
@@ -39,6 +39,9 @@
 </template>
 
 <script>
+import axios from "axios"
+
+import { PINATA_APIKEY, PINATA_SECRETAPIKEY } from '../config'
 
 export default {
   name: "AddReceipt",
@@ -54,7 +57,32 @@ export default {
     },
     async createReceipt() {
       try{
-        console.log(this.to, this.file)
+        const dateNow = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
+        const receiptData = JSON.stringify({ 
+          to: this.to,
+          dateNow
+        })
+
+        const prepareToUpload = new File(
+          [JSON.stringify(
+            {
+              receiptData
+            },
+            null,
+            1
+          )], 'metadata.json');
+        let data = new FormData()
+        data.append('file', prepareToUpload)
+        const res = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", data, {
+          maxContentLength: "Infinity",
+          headers: {
+            "Content-Type": 'multipart/form-data',
+            pinata_api_key: PINATA_APIKEY, 
+            pinata_secret_api_key: PINATA_SECRETAPIKEY,
+          }
+        })
+        let url = "https://gateway.pinata.cloud/ipfs/" + res.data.IpfsHash
+        console.log(url)
       } catch(error) {
         console.log(error)
         this.loading = false
