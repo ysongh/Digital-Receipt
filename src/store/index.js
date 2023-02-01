@@ -27,7 +27,8 @@ export default new Vuex.Store({
         commit('setWalletAddress', account)
 
         const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, DigitalReceipt.abi, provider)
+        const signer = provider.getSigner()
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, DigitalReceipt.abi, signer)
         commit('setContract', contract)
         console.log(contract)
       } catch(error) {

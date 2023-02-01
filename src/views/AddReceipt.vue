@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import axios from "axios"
 
 import { PINATA_APIKEY, PINATA_SECRETAPIKEY } from '../config'
@@ -51,6 +52,7 @@ export default {
     description: "",
     file: null,
   }),
+  computed: mapGetters(['DRContract']),
   methods: {
     previewFiles(event) {
       this.file = event.target.files
@@ -83,6 +85,10 @@ export default {
         })
         let url = "https://gateway.pinata.cloud/ipfs/" + res.data.IpfsHash
         console.log(url)
+        
+        const transaction = await this.DRContract.sendReceipt(url, this.to)
+        const tx = await transaction.wait()
+        console.log(tx)
       } catch(error) {
         console.log(error)
         this.loading = false
