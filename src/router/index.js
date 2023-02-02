@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AddReceipt from '../views/AddReceipt.vue'
+import MyReceipts from '../views/MyReceipts.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/add-receipt',
     name: 'AddReceipt',
     component: AddReceipt
+  },
+  {
+    path: '/my-receipts',
+    name: 'MyReceipts',
+    component: MyReceipts
   },
   {
     path: '/about',
