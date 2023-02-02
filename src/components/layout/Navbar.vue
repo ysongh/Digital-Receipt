@@ -2,19 +2,19 @@
   <c-box bg="#1dab2e" w="100%" p="4" color="white">
     <c-flex align="center" justify="space-between" px="6">
       <c-flex>
-        <c-link mr="4" as="router-link" to="/">
-          Digital Receipt
+        <c-link mr="6" mt="0" as="router-link" to="/">
+          <img class="logo" src="../../assets/logo.png" alt="logo" >
         </c-link>
-        <c-link mr="4" as="router-link" to="/">
+        <c-link mr="4" mt="3" as="router-link" to="/">
           Home
         </c-link>
-         <c-link mr="4" as="router-link" to="/add-receipt">
+         <c-link mr="4" mt="3" as="router-link" to="/add-receipt">
           Add Receipt
         </c-link>
-         <c-link mr="4" as="router-link" to="/my-receipts">
+         <c-link mr="4" mt="3"  as="router-link" to="/my-receipts">
           My Receipts
         </c-link>
-        <c-link as="router-link" to="/about">
+        <c-link as="router-link" mt="3" to="/about">
           About
         </c-link>
       </c-flex>
@@ -42,4 +42,7 @@ export default {
 </script>
 
 <style>
+  .logo {
+    width: 120px;
+  }
 </style>
