@@ -13,19 +13,6 @@
         <c-form-label for="to" fontWeight="bold">To</c-form-label>
         <c-input id="to" v-model="to" />
       </c-form-control>
-      
-      <label for="code"><strong>Upload Receipt</strong></label>
-      <br>
-      <input
-        id="code"
-        class="mb-4"
-        type="file"
-        label="Upload Receipt"
-        outlined
-        dense
-        @change="previewFiles">
-
-      <br>
 
       <c-button
         @click="createReceipt()"
@@ -50,13 +37,9 @@ export default {
     loading: false,
     to: "",
     description: "",
-    file: null,
   }),
   computed: mapGetters(['DRContract']),
   methods: {
-    previewFiles(event) {
-      this.file = event.target.files
-    },
     async createReceipt() {
       try{
         const dateNow = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
