@@ -15,8 +15,11 @@
         <c-text font-size="lg" mt="2">
           To: {{ receipt.to }}
         </c-text>
+        <c-text font-size="lg" mt="2">
+          Total: {{ receipt.total }}
+        </c-text>
          <c-text font-size="lg" mt="2">
-          Date: {{ receipt.dateNow }}
+          {{ receipt.dateNow }}
         </c-text>
       </c-box>
     </c-grid>

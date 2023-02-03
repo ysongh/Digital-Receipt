@@ -14,6 +14,11 @@
         <c-input id="to" v-model="to" />
       </c-form-control>
 
+      <c-form-control my="4">
+        <c-form-label for="total" fontWeight="bold">Total</c-form-label>
+        <c-input id="total" v-model="total" />
+      </c-form-control>
+
       <c-button
         @click="createReceipt()"
         mt="5"
@@ -36,7 +41,7 @@ export default {
   data: () => ({
     loading: false,
     to: "",
-    description: "",
+    total: "",
   }),
   computed: mapGetters(['DRContract']),
   methods: {
@@ -45,6 +50,7 @@ export default {
         const dateNow = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
         const receiptData = JSON.stringify({ 
           to: this.to,
+          total: this.total,
           dateNow
         })
 
