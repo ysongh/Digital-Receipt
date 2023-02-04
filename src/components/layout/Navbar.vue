@@ -14,9 +14,6 @@
          <c-link mr="4" mt="3"  as="router-link" to="/my-receipts">
           My Receipts
         </c-link>
-        <c-link as="router-link" mt="3" to="/about">
-          About
-        </c-link>
       </c-flex>
       <c-button variant-color="yellow" @click="connectToBlockchain()">
         {{ formatWalletAddress(walletAddress) }}
