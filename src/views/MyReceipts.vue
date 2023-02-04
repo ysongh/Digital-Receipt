@@ -13,7 +13,7 @@
           Receipts #1
         </c-box>
         <c-text font-size="lg" mt="2">
-          To: {{ receipt.to }}
+          From: {{ receipt.from }}
         </c-text>
         <c-text font-size="lg" mt="2">
           Total: {{ receipt.total }}

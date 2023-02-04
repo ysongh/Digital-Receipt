@@ -43,13 +43,14 @@ export default {
     to: "",
     total: "",
   }),
-  computed: mapGetters(['DRContract']),
+  computed: mapGetters(['DRContract', 'walletAddress']),
   methods: {
     async createReceipt() {
       try{
         const dateNow = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
         const receiptData = JSON.stringify({ 
           to: this.to,
+          from: this.walletAddress,
           total: this.total,
           dateNow
         })
