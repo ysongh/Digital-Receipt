@@ -1,8 +1,8 @@
 <template>
   <c-box px="10">
     <c-heading size="xl" my="5" align="center">Your Digital Receipts</c-heading>
-    <c-grid w="100%" template-columns="repeat(3, 1fr)" gap="6"  v-bind:key="receipt.dateNow" v-for="receipt of receipts">
-      <c-box w="100%" border-width="1px" rounded="lg" overflow="hidden" p="3">
+    <c-grid w="100%" template-columns="repeat(3, 1fr)" gap="6">
+      <c-box w="100%" border-width="1px" rounded="lg" overflow="hidden" p="3" v-bind:key="receipt.dateNow" v-for="receipt of receipts">
         <c-box
           mt="1"
           font-weight="semibold"
