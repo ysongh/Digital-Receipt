@@ -14,11 +14,17 @@
         <c-input id="to" v-model="to" />
       </c-form-control>
 
-      <c-form-control my="4">
-        <c-form-label for="total" fontWeight="bold">Amount</c-form-label>
-        <c-input id="total" v-model="total" />
-      </c-form-control>
+      <c-grid template-columns="repeat(2, 1fr)" gap="6" my="4">
+        <c-form-control>
+          <c-form-label for="total" fontWeight="bold">Amount</c-form-label>
+          <c-input id="total" v-model="total" />
+        </c-form-control>
 
+        <c-form-control>
+          <c-form-label for="type" fontWeight="bold">Type</c-form-label>
+          <c-input id="type" v-model="type" />
+        </c-form-control>
+      </c-grid>
 
       <c-form-control my="4">
         <c-form-label for="total" fontWeight="bold">Description</c-form-label>
@@ -54,6 +60,7 @@ export default {
     loading: false,
     to: "",
     total: "",
+    type: "",
     description: ""
   }),
   computed: mapGetters(['DRContract', 'walletAddress']),
@@ -67,6 +74,7 @@ export default {
           to: this.to,
           from: this.walletAddress,
           total: this.total,
+          type: this.type,
           description: this.description,
           dateNow
         })

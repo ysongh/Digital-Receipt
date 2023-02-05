@@ -16,7 +16,7 @@
           From: {{ receipt.from }}
         </c-text>
         <c-text font-size="lg" mt="2">
-          Total: {{ receipt.total }}
+          Total: {{ receipt.total }} {{ receipt.type }}
         </c-text>
         <c-text font-size="md" as="i" mt="2">
           {{ receipt.description }}
