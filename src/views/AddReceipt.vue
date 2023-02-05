@@ -29,9 +29,11 @@
         @click="createReceipt()"
         mt="5"
         variant-color="yellow"
+        v-if="!loading"
       >
         Create
       </c-button>
+      <Spinner v-else />
     </c-box>
   </c-box>
 </template>
@@ -41,9 +43,13 @@ import { mapGetters } from 'vuex'
 import axios from "axios"
 
 import { PINATA_APIKEY, PINATA_SECRETAPIKEY } from '../config'
+import Spinner from '../components/common/Spinner.vue'
 
 export default {
   name: "AddReceipt",
+  components: {
+    Spinner
+  },
   data: () => ({
     loading: false,
     to: "",
@@ -54,6 +60,8 @@ export default {
   methods: {
     async createReceipt() {
       try{
+        this.loading = true
+
         const dateNow = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`
         const receiptData = JSON.stringify({ 
           to: this.to,
@@ -87,6 +95,7 @@ export default {
         const transaction = await this.DRContract.sendReceipt(url, this.to)
         const tx = await transaction.wait()
         console.log(tx)
+        this.loading = false
       } catch(error) {
         console.log(error)
         this.loading = false
