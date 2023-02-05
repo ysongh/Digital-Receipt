@@ -18,6 +18,9 @@
         <c-text font-size="lg" mt="2">
           Total: {{ receipt.total }}
         </c-text>
+        <c-text font-size="md" as="i" mt="2">
+          {{ receipt.description }}
+        </c-text>
          <c-text font-size="lg" mt="2">
           {{ receipt.dateNow }}
         </c-text>

@@ -15,8 +15,14 @@
       </c-form-control>
 
       <c-form-control my="4">
-        <c-form-label for="total" fontWeight="bold">Total</c-form-label>
+        <c-form-label for="total" fontWeight="bold">Amount</c-form-label>
         <c-input id="total" v-model="total" />
+      </c-form-control>
+
+
+      <c-form-control my="4">
+        <c-form-label for="total" fontWeight="bold">Description</c-form-label>
+        <c-textarea placeholder="Text..." v-model="description" />
       </c-form-control>
 
       <c-button
@@ -42,6 +48,7 @@ export default {
     loading: false,
     to: "",
     total: "",
+    description: ""
   }),
   computed: mapGetters(['DRContract', 'walletAddress']),
   methods: {
@@ -52,6 +59,7 @@ export default {
           to: this.to,
           from: this.walletAddress,
           total: this.total,
+          description: this.description,
           dateNow
         })
 
