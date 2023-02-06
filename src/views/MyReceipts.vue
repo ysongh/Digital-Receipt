@@ -48,7 +48,7 @@
           <c-text font-size="lg" mt="2">
           {{ receipt.dateNow }}
         </c-text>
-        <c-button variant-color="yellow"  as="router-link" to="/add-receipt">
+        <c-button variant-color="yellow" @click="goToDetailpage(receipt.id - 1)">
           View
         </c-button>
       </c-grid>
@@ -71,6 +71,9 @@ export default {
     formatWalletAddress(address) {
       if(address) return address.slice(0, 10) + "..." + address.slice(32, 42)
       else return ""
+    },
+    goToDetailpage(id) {
+      this.$router.push('/receipt-detail/' + id);
     }
   },
   async created() {
