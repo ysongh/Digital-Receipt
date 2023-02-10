@@ -8,10 +8,10 @@
         <c-link mr="4" mt="3" as="router-link" to="/">
           Home
         </c-link>
-         <c-link mr="4" mt="3" as="router-link" to="/add-receipt">
+        <c-link v-if="walletAddress" mr="4" mt="3" as="router-link" to="/add-receipt">
           Add Receipt
         </c-link>
-         <c-link mr="4" mt="3"  as="router-link" to="/my-receipts">
+        <c-link v-if="walletAddress" mr="4" mt="3"  as="router-link" to="/my-receipts">
           My Receipts
         </c-link>
       </c-flex>
